@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 io.on("connection", socket => {
     console.log("a User connected");
     socket.on('newForumMessage', message => {
-        console.log(newForumMessage);
+        console.log(message);
         io.emit('newForumMessage', message);
     })
 

@@ -4,6 +4,7 @@ const io = require('socket.io')(server, { cors: '*' });
 const port = process.env.PORT || 3000;
 
 io.on("connection", socket => {
+    console.log("a User connected");
     socket.on('newForumMessage', message => {
         console.log(newForumMessage);
         io.emit('newForumMessage', message);

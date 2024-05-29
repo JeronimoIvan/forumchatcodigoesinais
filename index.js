@@ -4,8 +4,13 @@ const io = require('socket.io')(server, { cors: '*' });
 const port = process.env.PORT || 3000;
 
 io.on("connection", socket => {
-    io.emit("connection");
-    console.log("connection");
+    socket.on('newForumMessage', message => {
+        io.emit('newForumMessage', message);
+    })
+
+    socket.on('disconnect', reason => {
+
+    });
 });
 
 server.listen(port, () => console.log("listening on port "+ port));
